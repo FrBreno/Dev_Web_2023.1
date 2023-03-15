@@ -1,8 +1,14 @@
-import HelloWorld from './components/HelloWorld';
+// import HelloWorld from './components/00HelloWorld';
+// import Calculadora from './components/01Calculadora';
+import MyProps from './components/02MyProps';
 
 function App() {
   return (
-    <HelloWorld />
+    <>
+      {/* <HelloWorld /> */}
+      {/* <Calculadora /> */}
+      <MyProps nome="Algum nome" curso="Algum curso" />
+    </>
   );
 }
 
