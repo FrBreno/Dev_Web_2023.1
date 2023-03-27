@@ -30,8 +30,3 @@ div#root{
   justify-content: center;
   align-items: center;
 }
-
-.App div:nth-of-type(2) {
-  text-align: center;
-  margin-top: 30px;
-}
