@@ -6,15 +6,14 @@
 // import { Header, Body, Footer } from './components/04Multiplo';
 // import * as Site from './components/04Multiplo';
 
-import {Supermercado, Legume, Bebidas} from './components/05Children';
+// import {Supermercado, Legume, Bebidas} from './components/05Children';
+
+import FuncaoA from './components/06 Contexto/FuncaoA';
 
 function App() {
   return (
     <div className='App'>
-      <Supermercado nome='DuPovu'>
-        <Legume nome='Batata' />
-        <Bebidas nome='Café' />
-      </Supermercado>
+      <FuncaoA />
     </div>
   );
 }
