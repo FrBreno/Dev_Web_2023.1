@@ -9,13 +9,16 @@
 
 .btn-panel {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+    column-gap: 20px;
     flex-wrap: wrap;
 }
 
 .btn {
-    width: 140px; 
+    width: 160px; 
     height: 40px; 
-    margin-top: 0.83em;
     font-size: 17px; 
     font-weight: bold;
     color: white; 
@@ -26,12 +29,10 @@
 }
 
 .btn-avancar {  
-    margin-left: 10px;
     background-color: rgb(14, 156, 14); 
 }
 
 .btn-retornar { 
-    margin-right: 10px;
     background-color: rgb(181, 9, 6); 
 }
 

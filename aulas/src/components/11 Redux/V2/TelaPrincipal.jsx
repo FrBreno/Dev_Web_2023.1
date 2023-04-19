@@ -47,8 +47,8 @@ const TelaPrincipal = () => {
             <div className="btn-panel">
                 <BotaoDecrementar />
                 <BotaoIncrementar />
-                <BotaoIncrementarValor />
                 <BotaoDecrementarValor />
+                <BotaoIncrementarValor />
             </div>
         </div>
     );
