@@ -8,13 +8,16 @@
 // import FuncaoA from './components/06 Contexto/FuncaoA';
 // import { SaveData, LoadData } from './components/07 Storage/MyStorage';
 // import Pai from './components/08 PaiFilho/Pai';
+// import Contador from "./components/09 Estados/Contador";
+// import PokemonAxios from "./components/10 Axios/PokemonAxios";
+// import TelaPrincipal from "./components/11 Redux/V1/TelaPrincipal";
 
-import Contador from "./components/09 Estados/Contador";
+import MeuIndex from './components/11 Redux/V2/MeuIndex';
 
 function App() {
   return (
     <div className='App'>
-      <Contador />
+      <MeuIndex />
     </div>
   );
 }
