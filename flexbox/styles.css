@@ -1,0 +1,28 @@
+.box-row {
+    display: flex;
+    flex-direction: row;
+    border: solid 2px rgb(183, 0, 85);
+}
+
+.box-column {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    border: solid 2px rgb(183, 0, 85);
+}
+
+.box-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.box-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.box-wrap{
+    flex-wrap: wrap;
+}
+
+.item {
+    border: solid 1px rgb(84, 6, 67);
+}
