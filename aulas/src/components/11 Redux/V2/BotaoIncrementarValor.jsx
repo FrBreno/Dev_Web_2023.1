@@ -8,7 +8,7 @@ const BotaoIncrementarValor = () => {
 
     return (
         <>
-            <button onClick={() => {id > 905 ? alert('Não é possível incrementar') : dispatch(incrementarValor(valor))}} className="btn btn-avancar">Incrementar + {valor}</button>
+            <button onClick={() => {id > 895 ? alert('Não é possível incrementar') : dispatch(incrementarValor(valor))}} className="btn btn-avancar">Incrementar + {valor}</button>
         </>
     );
 }

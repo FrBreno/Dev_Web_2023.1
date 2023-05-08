@@ -11,13 +11,13 @@
 // import Contador from "./components/09 Estados/Contador";
 // import PokemonAxios from "./components/10 Axios/PokemonAxios";
 // import TelaPrincipal from "./components/11 Redux/V1/TelaPrincipal";
-
-import MeuIndex from './components/11 Redux/V2/MeuIndex';
+// import MeuIndex from './components/11 Redux/V2/MeuIndex';
+import MinhaPromise from './components/12 Promises/MinhaPromese';
 
 function App() {
   return (
     <div className='App'>
-      <MeuIndex />
+      <MinhaPromise />
     </div>
   );
 }

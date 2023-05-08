@@ -8,7 +8,7 @@ const BotaoDecrementar = () => {
     return (
         <>
             <button 
-                onClick={() => { id < 0 ? alert('Não é possível decrementar') : dispatch(decrementar()) }} 
+                onClick={() => { id === 0 ? alert('Não é possível decrementar') : dispatch(decrementar()) }} 
                 className="btn btn-retornar"
             >
                 Decrementar

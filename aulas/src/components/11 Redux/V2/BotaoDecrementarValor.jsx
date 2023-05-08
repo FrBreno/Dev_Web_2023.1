@@ -9,7 +9,7 @@ const BotaoDecrementarValor = () => {
     return (
         <>
             <button 
-                onClick={() => {id < 0 ? alert('Não é possível decrementar') : dispatch(decrementarValor(valor))}} 
+                onClick={() => {id < 10 ? alert('Não é possível decrementar') : dispatch(decrementarValor(valor))}} 
                 className="btn btn-retornar"
             >
                 Decrementar - {valor}
