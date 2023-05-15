@@ -7,14 +7,14 @@ const SaveData = () => {
             curso:"Sistemas de Informação"
         }
 
-        sessionStorage.setItem(aluno.matricula, JSON.stringify(aluno))
         localStorage.setItem(aluno.matricula, JSON.stringify(aluno))
+        sessionStorage.setItem(aluno.matricula, JSON.stringify(aluno))
     }
 
     return (
         <>
             <h1>Salvando dados...</h1>
-            {saveData}
+            {saveData()}
         </>
     );
 }
@@ -34,7 +34,7 @@ const LoadData = () => {
     return (
         <>
             <h1>Carregando dados...</h1>
-            {loadData}
+            {loadData()}
         </>
     );
 }
