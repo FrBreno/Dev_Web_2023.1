@@ -15,7 +15,7 @@
 // import MinhaPromise from './components/12 Promises/MinhaPromese';
 
 // import Signin from "./components/13 MUI/01 Signin/Signin";
-import MyMenu from "./components/13 MUI/02 Crud/MyMenuV1";
+import MyMenu from "./components/13 MUI/02 Crud/MinhaPage";
 
 function App() {
   return (
