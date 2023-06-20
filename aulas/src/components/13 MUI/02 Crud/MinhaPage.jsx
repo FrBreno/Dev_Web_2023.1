@@ -15,7 +15,7 @@ const MinhaPage = () => {
                 <Routes>
                     <Route path='cadastrar-professor' element={<CadastrarProfessor />} />
                     <Route path='listar-professor' element={<ListarProfessor />} />
-                    <Route path='editar-professor' element={<EditarProfessor />} />
+                    <Route path='editar-professor/:id' element={<EditarProfessor />} />
                 </Routes>
             </Container>
         </BrowserRouter>
