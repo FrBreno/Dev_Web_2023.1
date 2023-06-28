@@ -1,17 +1,31 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CadastrarProfessor = () => {
     const [nome, setNome] = useState('');
     const [curso, setCurso] = useState('');
     const [titulacao, setTitulacao] = useState('GRAD');
     const [ai, setAi] = useState({cg:false, mc:false,al:false,es:false});
-
+    
     const {cg, mc, al, es} = ai;
+    const navigate = useNavigate();
 
     function handleSubmit(event) {
-        event.preventDefault()
-        console.log(`${nome} - ${curso}`)
+        event.preventDefault();
+        const newProfessor = {nome, curso, titulacao, ai};
+        fetch('http://localhost:3001/professores/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newProfessor),
+        })
+        .then(res => {
+            console.log('Professor Cadastrado!');
+            navigate('/listar-professor');
+        })
+        .catch(error => console.log('Erro ao cadastrar novo professor!', error));
     }
 
     function handleCheckbox(event) {
@@ -56,6 +70,7 @@ const CadastrarProfessor = () => {
                         labelId="select-tit-label"
                         label="Titulação"
                         value={titulacao}
+                        onChange={(event) => setTitulacao(event.target.value)}
                     >
                         <MenuItem value="GRAD">Graduação</MenuItem>
                         <MenuItem value="MEST">Mestrado</MenuItem>

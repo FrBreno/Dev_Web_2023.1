@@ -1,23 +1,23 @@
 import { Box, Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Editar = () => {
     let { id } = useParams();
-
+    const navigate = useNavigate();
     // Quebra Galhos:
-    const professores = [
-        {id: 0, nome: 'Vito Corleone', curso: 'SI', titulacao: 'MEST', ai: {cg:true, mc:false,al:false,es:true}},
-        {id: 1, nome: 'Michael Corleone', curso: 'DD', titulacao: 'GRAD', ai: {cg:false, mc:false,al:true,es:false}},
-        {id: 2, nome: 'Luca Brasi', curso: 'SI', titulacao: 'MEST', ai: {cg:false, mc:false,al:true,es:false}},
-        {id: 3, nome: 'Kay Adams', curso: 'SI', titulacao: 'DOUT', ai: {cg:false, mc:true,al:false,es:false}},
-        {id: 4, nome: 'Peter Clemenza', curso: 'CC', titulacao: 'MEST', ai: {cg:false, mc:true,al:true,es:true}},
-    ];
+    // const professores = [
+    //     {id: 0, nome: 'Vito Corleone', curso: 'SI', titulacao: 'MEST', ai: {cg:true, mc:false,al:false,es:true}},
+    //     {id: 1, nome: 'Michael Corleone', curso: 'DD', titulacao: 'GRAD', ai: {cg:false, mc:false,al:true,es:false}},
+    //     {id: 2, nome: 'Luca Brasi', curso: 'SI', titulacao: 'MEST', ai: {cg:false, mc:false,al:true,es:false}},
+    //     {id: 3, nome: 'Kay Adams', curso: 'SI', titulacao: 'DOUT', ai: {cg:false, mc:true,al:false,es:false}},
+    //     {id: 4, nome: 'Peter Clemenza', curso: 'CC', titulacao: 'MEST', ai: {cg:false, mc:true,al:true,es:true}},
+    // ];
 
-    function getProfessorById(id) {
-        const professor = professores.find(prof => prof.id == id);
-        return professor ? professor : null;
-    }
+    // function getProfessorById(id) {
+    //     const professor = professores.find(prof => prof.id == id);
+    //     return professor ? professor : null;
+    // }
     //
     
     const [nome, setNome] = useState('');
@@ -28,16 +28,37 @@ const Editar = () => {
     const {cg, mc, al, es} = ai;
 
     useEffect(() => {
-        let { _, nome, curso, titulacao, ai } = getProfessorById(id);
-        setNome(nome);
-        setCurso(curso);
-        setTitulacao(titulacao);
-        setAi(ai);
+        // let { _, nome, curso, titulacao, ai } = getProfessorById(id);
+        // setNome(nome);
+        // setCurso(curso);
+        // setTitulacao(titulacao);
+        // setAi(ai);
+
+        fetch(`http://localhost:3001/professores/retrieve/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            setNome(data.nome);
+            setCurso(data.curso);
+            setTitulacao(data.titulacao);
+            setAi(data.ai);
+        })
+        .catch(error => console.log('Erro ao recuperar professor', error));
     }, []);
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(`${nome} - ${curso}`)
+        fetch(`http://localhost:3001/professores/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({nome, curso, titulacao, ai}),
+        })
+        .then(res => {
+            console.log('Professor Editado!');
+            navigate('/listar-professor');
+        })
+        .catch(error => console.log('Erro ao editar novo professor!', error));;
     }
 
     function handleCheckbox(event) {
@@ -84,6 +105,7 @@ const Editar = () => {
                         labelId="select-tit-label"
                         label="Titulação"
                         value={titulacao}
+                        onChange={(event) => setTitulacao(event.target.value)}
                     >
                         <MenuItem value="GRAD">Graduação</MenuItem>
                         <MenuItem value="MEST">Mestrado</MenuItem>

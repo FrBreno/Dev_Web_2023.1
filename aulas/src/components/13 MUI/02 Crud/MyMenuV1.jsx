@@ -46,15 +46,6 @@ const MyMenu = () => {
                     >
                         Listar
                     </MenuItem>
-                    <MenuItem
-                        onClick={() => {
-                            handleCloseAnchorElProfessor()
-                        }}
-                        component={Link}
-                        to="editar-professor"
-                    >
-                        Editar
-                    </MenuItem>
                 </Menu>
             </Box>
         );
